@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class LevelOrderIterative {
+
+	static Queue<Node> queue = new LinkedList<Node>();
+	
+	public static void main(String[] args) {
+
+		Node root = new Node(1,null,null);
+		root.left = new Node(2,new Node(4,null,null),new Node(5,null,null));
+		root.right = new Node(3,new Node(6,null,null), new Node(7,null,null));
+
+		levelOrderIterative(root);
+	}
+
+	public static void levelOrderIterative(Node root) {
+     
+    	queue.add(root);
+
+    	while(!queue.isEmpty()) {
+    		Node node = queue.poll();
+    		System.out.println(node.val);
+
+    		if(node.left != null) {
+    			queue.add(node.left);
+    		}
+
+    		if(node.right != null) {
+    			queue.add(node.right);
+    		}
+    	}
+	}
+}
+
+class Node {
+	int val;
+	Node left;
+	Node right;
+	public Node(int val, Node left, Node right) {
+		this.val = val;
+		this.left = left;
+		this.right = right;
+	}
+}
