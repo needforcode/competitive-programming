@@ -27,6 +27,9 @@ Write a SQL query for a report that provides the following information for each 
 
 FirstName, LastName, City, State
 */
-
-Select p.FirstName, p.LastName, a.City, a.State 
-from Person p LEFT OUTER JOIN Address a ON (p.PersonId = a.PersonId);
+SELECT p.FirstName,
+       p.LastName,
+       a.City,
+       a.State
+FROM Person p
+LEFT OUTER JOIN Address a ON (p.PersonId = a.PersonId);
